@@ -18,7 +18,19 @@ from sklearn.metrics import silhouette_samples, silhouette_score
 
 def plot_matriz_distancias(X: np.ndarray, names: list[str], ax, title: str) -> None:
     D = squareform(pdist(X, metric="euclidean"))
-    sns.heatmap(D, xticklabels=names, yticklabels=names, cmap="mako", ax=ax, square=True)
+    n = int(D.shape[0])
+    ann_size = max(5, min(10, int(140 / max(n, 1))))
+    sns.heatmap(
+        D,
+        xticklabels=names,
+        yticklabels=names,
+        cmap="mako",
+        ax=ax,
+        square=True,
+        annot=True,
+        fmt=".2f",
+        annot_kws={"size": ann_size},
+    )
     ax.set_title(title)
 
 
