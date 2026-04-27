@@ -1,26 +1,18 @@
-# 7 — Clustering jerarquico (didactico)
+# 7 — Clustering jerárquico (cuaderno único)
 
-Flujo con datos `data/Estudiantes.xlsx`: validacion de clusterabilidad, comparacion de metricas de distancia y metodos de enlace, y graficos de interpretacion en `scripts/`.
+Todo el flujo didáctico vive en **`clustering_jerarquico.ipynb`**: no hay módulos `.py` en esta carpeta. El ejemplo usa **`data/Estudiantes.xlsx`** (columna `Nombre` + calificaciones numéricas).
 
 ## Entorno
 
 ```bash
 cd "7 - clustering_jerarquico"
 python3 -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Para abrir el notebook puedes usar Jupyter en tu entorno habitual (`pip install jupyter` o la extension de VS Code / Cursor).
+Abre el notebook en Jupyter o en Cursor y ejecuta las celdas en orden (o *Run All*).
 
-Abre `clustering_jerarquico.ipynb` y ejecuta todas las celdas.
+## Contenido del cuaderno
 
-Tambien se incluye `clustering_jerarquico.executed.ipynb` (misma logica, ya corrida con `nbconvert`) para revisar salidas sin ejecutar.
-
-## Contenido
-
-- **clusterability**: estadistico de Hopkins y mapa tipo VAT (orden seriado de la matriz de distancias).
-- **Modelo**: euclidea, Manhattan y coseno; enlace single (minimo), complete (maximo), average y Ward (solo con euclidea).
-- **Graficos** (modulos en `scripts/`): dendrogramas, barras de tamanos y perfiles, PCA 2D, arana/radar, silueta, mapas de calor de distancias y perfiles, correlacion cophenetica, curva silueta vs k.
-
-Con solo 10 estudiantes, los indicadores (sobre todo Hopkins y silueta) son inestables; el objetivo es didactico: interpretar formas del dendrograma y comparar configuraciones.
+Hopkins y VAT, estandarización, dendrogramas (single, complete, average, Ward), silueta vs *k*, correlación cophenética, perfiles en barras y radar, mapa de calor de medias, PCA 2D, silueta por observación y tabla resumen. Puedes cambiar **`K`** en la sección de número de clusters.
